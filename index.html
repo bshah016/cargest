@@ -22,7 +22,7 @@ function getCar()
     
     var src = "'" + carName + ".jpg'"
     var img = document.getElementById("image");
-    img.innerHTML = "<input type='image' src= images/" + src + "onclick='search(this)' width = 100 height = 100/>";
+    img.innerHTML = "<input type='image' src= " + src + "onclick='search(this)' width = 100 height = 100/>";
     document.getElementById("place").innerHTML = "You should get " + carlist[loc];
     console.log(carlist.length);
     carlist.splice(loc, 1);
@@ -37,7 +37,7 @@ function getExotic()
        
 var srcs = "'" + exoticName + ".jpg'"
 var imgs = document.getElementById("images");
-imgs.innerHTML = "<input type='image' src= images/" + srcs + "onclick='search(this)' width = 100 height = 100/>";
+imgs.innerHTML = "<input type='image' src= " + srcs + "onclick='search(this)' width = 100 height = 100/>";
 		document.getElementById("places").innerHTML = "You should get " + exoticlist[spot] + " With a Little More  MONEY!!!";
         console.log(exoticlist.length);
         exoticlist.splice(spot, 1);
@@ -82,7 +82,7 @@ function endCarFunction(){
         var plc = document.getElementById("place");
          if (carlist.length == 0) {
             alert("You have run out of regular cars.");
-            img.innerHTML = "<input type ='image' src = images/'alldone.jpg' width = 100 height = 100 onclick='display()' /> ";
+            img.innerHTML = "<input type ='image' src = 'alldone.jpg' width = 100 height = 100 onclick='display()' /> ";
             plc.innerHTML = "You're Done!!";
         }
     }
@@ -92,7 +92,7 @@ function endExoticFunction(){
         var plcs = document.getElementById("places");
          if (exoticlist.length == 0) {
             alert("You have run out of exotic cars.");
-            imgs.innerHTML = "<input type ='image' src = images/'alldone.jpg' width = 100 height = 100 onclick='display()'/>";
+            imgs.innerHTML = "<input type ='image' src = 'alldone.jpg' width = 100 height = 100 onclick='display()'/>";
             plcs.innerHTML = "You're Done!!";
         }
     }
