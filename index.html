@@ -1,0 +1,335 @@
+<html>
+<head>
+<script>
+
+    
+    
+    
+function display() {
+    window.open("https://media.tenor.com/images/54fc394817457e4b96ef4669641375d9/tenor.gif");
+}
+    
+var carlist = ["a Toyota", "a Honda", "a Mazda", "an Acura", "a Lexus", "a Nissan", "an Infiniti", "a Volvo", "a Jaguar", "a Kia", "a Jeep", "a Chevy", "a Ford", "a Volkswagen", "a BMW", "a Dodge", "an Audi", "a Mistubishi", "a Hyundai"];
+    
+var exoticlist = ["a Lamborghini", "a Ferrari", "a McLaren", "a Pagani", "A TESLA", "a Koenigsegg", "a Nissan GTR", "a Bugatti", "a Porsche", "a Mercedes AMG", "a BMW M Performance Series", "an Aston Martin", "a Maserati", "an Alfa Romeo", "a Dodge Viper", "a Bentley", "a Rolls Royce", "a Gumpert", "a W Motors Hypersport"];
+    
+function getCar()
+{
+    
+    var loc = Math.floor(Math.random() * carlist.length);
+    var carName = carlist[loc];
+    
+    
+    var src = "'" + carName + ".jpg'"
+    var img = document.getElementById("image");
+    img.innerHTML = "<input type='image' src= images/" + src + "onclick='search(this)' width = 100 height = 100/>";
+    document.getElementById("place").innerHTML = "You should get " + carlist[loc];
+    console.log(carlist.length);
+    carlist.splice(loc, 1);
+　
+}
+function getExotic()
+		{
+		 if (exoticlist.length > 0) {
+		var spot = Math.floor(Math.random() * exoticlist.length);
+		var exoticName = exoticlist[spot];
+        
+       
+var srcs = "'" + exoticName + ".jpg'"
+var imgs = document.getElementById("images");
+imgs.innerHTML = "<input type='image' src= images/" + srcs + "onclick='search(this)' width = 100 height = 100/>";
+		document.getElementById("places").innerHTML = "You should get " + exoticlist[spot] + " With a Little More  MONEY!!!";
+        console.log(exoticlist.length);
+        exoticlist.splice(spot, 1);
+		}
+        }
+function carlike()
+{
+    var cars = document.getElementById("image").innerHTML;
+    document.getElementById("likes").innerHTML += "<th>" + cars + "</th> ";
+        
+}
+function cardislike()
+{
+    var cars = document.getElementById("image").innerHTML;
+    document.getElementById("dislikes").innerHTML += "<th>" + cars  + "</th> ";
+}
+function exoticlike()
+{
+    var exotics = document.getElementById("images").innerHTML;
+    document.getElementById("exlikes").innerHTML += "<th>" + exotics + "</th> ";
+}
+function exoticdislike()
+{
+		 var exotics = document.getElementById("images").innerHTML;
+         document.getElementById("exdislikes").innerHTML += "<th>" + exotics + "</th> ";
+}
+    
+function search(input){
+        var carNameWithA = input.src.split("/").pop().split(".")[0];
+        if (carNameWithA.charAt(1) == "%" ){
+            var carName = carNameWithA.substring(4, carNameWithA.length);
+        }
+        else {
+            var carName = carNameWithA.substring(5, carNameWithA.length);
+        }
+        window.open("https://www.google.com/search?q=" + carName, "_blank");
+        window.focus();
+    }
+    
+function endCarFunction(){
+        var img = document.getElementById("image");
+        var plc = document.getElementById("place");
+         if (carlist.length == 0) {
+            alert("You have run out of regular cars.");
+            img.innerHTML = "<input type ='image' src = images/'alldone.jpg' width = 100 height = 100 onclick='display()' /> ";
+            plc.innerHTML = "You're Done!!";
+        }
+    }
+        
+function endExoticFunction(){
+        var imgs = document.getElementById("images");
+        var plcs = document.getElementById("places");
+         if (exoticlist.length == 0) {
+            alert("You have run out of exotic cars.");
+            imgs.innerHTML = "<input type ='image' src = images/'alldone.jpg' width = 100 height = 100 onclick='display()'/>";
+            plcs.innerHTML = "You're Done!!";
+        }
+    }
+    
+function endBothFunction(){
+        if (exoticlist.length == 0 && carlist.length == 0) {
+            alert("Try Clicking on any Cars That You Like!!");
+        }
+    }
+    
+function endFunction(){
+        endCarFunction();
+        endExoticFunction();
+        endBothFunction()
+    }
+//function countCells(){  
+    //var mytable = document.getElementById('table')
+       // for (i=0; i < mytable.rows.length; i++) {
+	    //document.getElementById("test").innerHTML = mytable.rows[i].cells.length;
+        //}
+//}
+  
+    
+</script>
+<style>
+
+    .center {
+        padding: 20px 0;
+        
+}
+#bod {
+  zoom: 92%;
+}
+    
+    #places {
+        font-family: fantasy;
+        font-size: 25px;
+    }
+    
+    #place {
+        font-family: fantasy;
+        font-size: 25px;
+    }
+    
+    
+    #one {
+        padding: 10px 0;
+    }
+    
+    #two {
+        padding-bottom: 10px;
+    }
+    
+    #table tr th{
+        text-align: left;
+        border: 3px grey solid;
+        font-family: monospace;
+        
+    }
+        
+    }
+    }
+    
+    #table {
+        border-collapse: collapse;
+       
+    }
+    
+/* Botton Hover CSS Taken from StackOverflow */
+    
+.button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 4px 8px; 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px; 
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button1:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button3:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button4:hover {
+    background-color: #008CBA;
+    }
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button5:hover {
+  background-color: #008CBA;
+  color: white;
+}
+/* CSS Taken from StackOverflow ends HERE */   
+
+    
+		
+　
+</style>
+</head>
+<body id = "bod">
+    
+    <input type="button" value="See What Car You Should Get" onclick="getCar(); getExotic()" class="button button1"/>
+    <br/>
+    <div id="place"></div>
+    <div id="image"></div>
+    <br/>
+    <input type="button" value="Like" onclick="carlike(); getCar(); endCarFunction(); setTimeout(endBothFunction, 1);" class="button button2"/>
+    <input type="button" value="Dislike" onclick="cardislike(); getCar(); endCarFunction(); setTimeout(endBothFunction, 1);" class="button button3"/>
+    <div id="places"></div>
+    <div id="images"></div>
+    <input type="button" value="Like" onclick="exoticlike(); getExotic(); endExoticFunction(); setTimeout(endBothFunction, 1);" class="button button4"/>
+    <input type="button" value="Dislike" onclick="exoticdislike(); getExotic(); endExoticFunction(); setTimeout(endBothFunction, 1);" class="button button5"/>    
+    <br/>
+    <img src ="blue.png" width="100%" height="2" id="one"/>
+    <br/>
+    <img src ="blue.png" width="100%" height="2" id="two"/>
+    <br/>
+    <table id="table">
+        <tr id="likes">
+        
+            <th>
+            
+                Likes:
+            
+            </th>
+            
+        </tr>
+        <tr id="dislikes">
+        
+            <th >
+            
+                Disikes:
+            
+            </th>
+            
+        </tr>
+        <tr id="exlikes">
+        
+            <th >
+            
+                Exotic Likes:
+            
+            </th>
+            
+        </tr>
+        <tr id="exdislikes">
+        
+            <th >
+            
+                Exotic Dislikes:
+            
+            </th>
+            
+        </tr>
+    
+    
+    
+    
+    
+    </table>   
+    <div id="divs"></div>
+    <div id="test"></div>
+</body>
+
+</html>
+
+
+
+<!--
+
+<body> 
+//<img src ="a%20Chevy.jpg" width="1" height="50%" />
+<input type="button" value="See What Car You Should Get" onclick="getCar(); getExotic()" />
+<div id="place"></div>
+<div id="image"></div>
+<input type="button" value="Like" onclick="carlike(); getCar()" />
+<input type="button" value="Dislike" onclick="cardislike(); getCar()" />
+<div id="places"></div>
+<div id="images"></div>
+<input type="button" value="Like" onclick="exoticlike(); getExotic()" />
+<input type="button" value="Dislike" onclick="exoticdislike(); getExotic()" />
+    <br/>
+    <br/>
+<img src ="blue.png" width="100%" height="2" id="one"/>
+    //<br/>
+    //<br/>
+<img src ="blue.png" width="100%" height="2" id="two"/>
+	
+<div id="likes" class="center">Likes: </div>
+<div id="dislikes" class="center">Dislikes: </div>
+<div id="exlikes" class="center">Exotic Likes: </div>
+<div id="exdislikes" class="center">Exotic Dislikes: </div>
+</body>
+!-->
